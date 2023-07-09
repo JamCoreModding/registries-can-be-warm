@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "io.github.jamalam360.registries.can.be.warm.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "SimpleRegistryMixin"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
