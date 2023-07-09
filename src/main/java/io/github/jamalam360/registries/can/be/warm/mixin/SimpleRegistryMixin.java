@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) [YEAR] Jamalam
+ * Copyright (c) 2023 Jamalam
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,23 +22,25 @@
  * THE SOFTWARE.
  */
 
-package io.github.jamalam360.templatemod;
+package io.github.jamalam360.registries.can.be.warm.mixin;
 
-import io.github.jamalam360.jamlib.log.JamLibLogger;
-import net.minecraft.util.Identifier;
-import org.quiltmc.loader.api.ModContainer;
-import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
+import net.minecraft.registry.SimpleRegistry;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-public class TemplateModInit implements ModInitializer {
-    public static final String MOD_ID = "templatemod";
-    public static final JamLibLogger LOGGER = JamLibLogger.getLogger(MOD_ID);
+@Mixin(SimpleRegistry.class)
+public class SimpleRegistryMixin {
 
-    @Override
-    public void onInitialize(ModContainer mod) {
-        LOGGER.logInitialize();
+    @Inject(method = "requireNotFrozen()V", at = @At(value = "HEAD"), cancellable = true)
+    private void registriescanbewarm$funny_one(CallbackInfo ci) {
+        ci.cancel();
     }
 
-    public static Identifier idOf(String path) {
-        return new Identifier(MOD_ID, path);
+    @Inject(method = "requireNotFrozen(Lnet/minecraft/registry/RegistryKey;)V", at = @At(value = "HEAD"), cancellable = true)
+    private void registriescanbewarm$funny_two(CallbackInfo ci) {
+        ci.cancel();
     }
 }
+

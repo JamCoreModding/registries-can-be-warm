@@ -6,4 +6,4 @@
 
 Closed issues: None.
 
-[Full Changelog](https://github.com/JamCoreModding/TemplateMod/compare/...)
+[Full Changelog](https://github.com/JamCoreModding/registries-can-be-warm/compare/...)
